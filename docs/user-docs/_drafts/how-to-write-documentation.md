@@ -94,7 +94,7 @@ This is used to define page metadata:
 Add the content below the front matter.
 
 ## How to Add Figures
-See the section `Include Figure` from [example markdown page](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) / [generated example page](http://localhost:4000/example/#include-figure) to see how to add figures into the page.
+See the section `Include Figure` from [example markdown page](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) / [generated example page]({{ '/example/#include-figure' | relative_url }}) to see how to add figures into the page.
 
 Documentation figures are stored in `docs/user-docs/images`. Please mirror the directory structure of your documentation in the image foldes folder. <strong style="color:red">You must not use `_` at the beginning of folders, otherwise the contained images are not accessible</strong>.
 

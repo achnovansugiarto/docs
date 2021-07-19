@@ -184,6 +184,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - links.log
 keep_files:
   - .git
   - .svn

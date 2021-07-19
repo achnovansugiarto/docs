@@ -1,20 +1,25 @@
 require 'html-proofer'
 
-task :test do
-    sh "bundle exec jekyll build"
-    opts = {
+def run_htmlproofer()
+  opts = {
         :check_html => true,
         :empty_alt_ignore => true,
         :only_4xx => true,
+        http_status_ignore: [999],
         :url_ignore => [
-          "#",
-          /^(https?\:\/\/)?(www\.)?youtube\.com\/.+$/,
-          /^https?\:\/\/squeak\.org\/(4|5)0/,
-          /^(https?\:\/\/)?(shop\.)?spreadshirt\.com\/.+$/,
-          /^(https?\:\/\/)?(www\.)?twitter\.com\/.+$/ ],
+          "#"],
         :typhoeus => {
-          :ssl_verifypeer => false,
-          :ssl_verifyhost => 0 }
+        :ssl_verifypeer => false,
+        :ssl_verifyhost => 0 }
     }
     HTMLProofer.check_directory('./_site', opts).run
+end
+
+task :test do
+  sh "bundle exec jekyll build --drafts"
+  run_htmlproofer()
+end
+
+task :testwithoutbuild do
+  run_htmlproofer()
 end

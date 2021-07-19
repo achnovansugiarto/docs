@@ -38,3 +38,12 @@ job=run-jekyll-page:
     - 4000:4000
   annotations:
     description: "  -> run jekyll page"
+
+job=check-dead-links:
+  use: image-jekyll
+  interactive: true
+  command: sh -c "bundle update && rake test &> links.log"
+  mounts:
+    - mount-docs
+  annotations:
+    description: "  -> check jekyll page for dead links"
